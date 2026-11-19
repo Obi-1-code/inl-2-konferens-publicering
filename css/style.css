@@ -1,246 +1,259 @@
-/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+:root {
+  color-scheme: dark;
+  /* Backgrounds */
+  --ss-background: #08090f;
+  --ss-hero-background: #0d121e;
+  --ss-surface: #111826;
+  /* Text */
+  --ss-text: #f7f8fc;
+  --ss-text-muted: #a8afbf;
+  /* Accent colors */
+  --ss-cyan: #22d3ee;
+  --ss-violet: #8a5cf6;
+  /* Other */
+  --ss-border: #293244;
+  --ss-button-text: #061018;
+}
 
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --ss-background: #f5f6fa;
+    --ss-hero-background: #edf1f8;
+    --ss-surface: #ffffff;
+    --ss-text: #171b25;
+    --ss-text-muted: #566073;
+    --ss-cyan: #007e91;
+    --ss-violet: #7047d1;
+    --ss-border: #d7deeb;
+    --ss-button-text: #ffffff;
+  }
+}
+/* =====================================
+   HERO SECTION
+===================================== */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(5rem, 12vw, 9rem) 1.5rem;
+  background-color: var(--ss-hero-background);
+  color: var(--ss-text);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse 40rem 22rem at 75% 30%, rgba(138, 92, 246, 0.16), transparent 70%), radial-gradient(ellipse 38rem 18rem at 20% 90%, rgba(34, 211, 238, 0.1), transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  z-index: -1;
+  background-image: radial-gradient(rgba(247, 248, 252, 0.35) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.15;
+  mask-image: linear-gradient(to bottom, transparent, black);
+  pointer-events: none;
+}
 
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+/* HERO CONTENT */
+.hero__content {
+  position: relative;
+  width: min(100%, 55rem);
+  margin-inline: auto;
+  text-align: center;
+  animation: hero-fade-up 0.8s ease-out both;
+}
 
-html {
-  color: #222;
-  font-size: 1em;
+/* Small introductory text */
+.hero__eyebrow {
+  margin: 0 0 1.75rem;
+  color: var(--ss-cyan);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Main heading */
+.hero h1 {
+  max-width: 12ch;
+  margin: 0 auto 1.5rem;
+  font-size: clamp(3rem, 7.2vw, 6.5rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+
+/* Conference slogan */
+.hero__slogan {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 600;
   line-height: 1.4;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
+/* Description */
+.hero__description {
+  max-width: 42rem;
+  margin: 0 auto 1.8rem;
+  color: var(--ss-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+/* Date and location */
+.hero__event-details {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 2rem;
+  padding: 0.7rem 1.2rem;
+  color: var(--ss-text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--ss-border);
+  border-radius: 999px;
 }
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
-}
-
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
+.hero__event-details::before {
   content: "";
-  display: table;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex-shrink: 0;
+  background-color: var(--ss-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--ss-cyan);
 }
 
-.clearfix::after {
-  clear: both;
+/* HERO BUTTONS */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+.hero .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.9rem 1.8rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.hero .button:hover {
+  transform: translateY(-3px);
+}
+.hero .button:focus-visible {
+  outline: 3px solid var(--ss-violet);
+  outline-offset: 4px;
 }
 
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
+/* Primary button */
+.hero .button--primary {
+  background: linear-gradient(110deg, var(--ss-cyan), var(--ss-violet));
+  color: var(--ss-button-text);
+}
+.hero .button--primary:hover {
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.2);
 }
 
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
+/* Secondary button */
+.hero .button--secondary {
+  background-color: transparent;
+  border-color: var(--ss-border);
+  color: var(--ss-text);
+}
+.hero .button--secondary:hover {
+  background-color: var(--ss-surface);
+  border-color: var(--ss-cyan);
+}
 
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
+/* Small text below the buttons */
+.hero__microcopy {
+  margin: 2rem 0 0;
+  color: var(--ss-text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/*ANIMATION*/
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+/*RESPONSIVE DESIGN*/
+@media (max-width: 36rem) {
+  .hero {
+    padding: 4.5rem 1.25rem;
+  }
+  .hero__eyebrow {
+    font-size: 0.65rem;
+  }
+  .hero__event-details {
+    font-size: 0.7rem;
+    gap: 0.5rem;
+  }
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero .button {
+    width: min(100%, 18rem);
+  }
+}
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero__content {
+    animation: none;
+  }
+  .hero .button {
+    transition: none;
+  }
+}
+/* Global reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Global page settings */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--ss-background);
+  color: var(--ss-text);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
