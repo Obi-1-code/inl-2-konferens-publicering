@@ -1,38 +1,4 @@
 @use "variables";
+@use "base";
 @use "header";
-@use "hero";
-
-/* Global reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Global page settings */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-  background-color: var(--ss-background);
-  color: var(--ss-text);
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
+@use "sections";
