@@ -25,3 +25,11 @@ The purpose of this project is to create a responsive website for a fictional te
 - CSS
 - Sass (SCSS)
 - Git and GitHub
+
+## Links
+
+Live page: https://obi-1-code.github.io/inl-2-konferens-publicering/
+
+## Lighthouse test
+
+<img width="797" height="857" alt="image" src="https://github.com/user-attachments/assets/aff3275d-b649-4c4c-8a4b-65b6b00fe7b0" />
