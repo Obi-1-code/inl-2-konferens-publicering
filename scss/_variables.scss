@@ -15,7 +15,9 @@
 
   /* Accent colors */
   --ss-cyan: #22d3ee;
-  --ss-violet: #8a5cf6;
+  --ss-cyan-rgb: 34, 211, 238;
+  --ss-violet: #9670f7;
+  --ss-violet-rgb: 150, 112, 247;
 
   /* Other */
   --ss-border: #293244;
@@ -36,8 +38,10 @@
     --ss-text: #171b25;
     --ss-text-muted: #566073;
 
-    --ss-cyan: #007e91;
+    --ss-cyan: #006b7a;
+    --ss-cyan-rgb: 0, 107, 122;
     --ss-violet: #7047d1;
+    --ss-violet-rgb: 112, 71, 209;
 
     --ss-border: #d7deeb;
     --ss-button-text: #ffffff;

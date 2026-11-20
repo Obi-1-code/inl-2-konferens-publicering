@@ -142,7 +142,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 18px rgba(34, 211, 238, 0.15);
+    box-shadow: 0 0 18px rgba(var(--ss-cyan-rgb), 0.15);
   }
 
   &:focus-visible {

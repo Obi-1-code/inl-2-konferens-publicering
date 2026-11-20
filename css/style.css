@@ -11,7 +11,9 @@
   --ss-text-muted: #a8afbf;
   /* Accent colors */
   --ss-cyan: #22d3ee;
-  --ss-violet: #8a5cf6;
+  --ss-cyan-rgb: 34, 211, 238;
+  --ss-violet: #9670f7;
+  --ss-violet-rgb: 150, 112, 247;
   /* Other */
   --ss-border: #293244;
   --ss-button-text: #061018;
@@ -26,8 +28,10 @@
     --ss-surface: #ffffff;
     --ss-text: #171b25;
     --ss-text-muted: #566073;
-    --ss-cyan: #007e91;
+    --ss-cyan: #006b7a;
+    --ss-cyan-rgb: 0, 107, 122;
     --ss-violet: #7047d1;
+    --ss-violet-rgb: 112, 71, 209;
     --ss-border: #d7deeb;
     --ss-button-text: #ffffff;
   }
@@ -156,7 +160,7 @@ body {
 }
 .site-header__cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 18px rgba(34, 211, 238, 0.15);
+  box-shadow: 0 0 18px rgba(var(--ss-cyan-rgb), 0.15);
 }
 .site-header__cta:focus-visible {
   outline: 3px solid var(--ss-cyan);
@@ -250,7 +254,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(ellipse 40rem 22rem at 75% 30%, rgba(138, 92, 246, 0.16), transparent 70%), radial-gradient(ellipse 38rem 18rem at 20% 90%, rgba(34, 211, 238, 0.1), transparent 70%);
+  background: radial-gradient(ellipse 40rem 22rem at 75% 30%, rgba(var(--ss-violet-rgb), 0.16), transparent 70%), radial-gradient(ellipse 38rem 18rem at 20% 90%, rgba(var(--ss-cyan-rgb), 0.1), transparent 70%);
   pointer-events: none;
 }
 .hero::after {
@@ -371,13 +375,13 @@ body {
   color: var(--ss-button-text);
 }
 .hero .button--primary:hover {
-  box-shadow: 0 0 24px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 24px rgba(var(--ss-cyan-rgb), 0.2);
 }
 
 /* Secondary button */
 .hero .button--secondary {
   background-color: transparent;
-  border-color: var(--ss-border);
+  border-color: var(--ss-cyan);
   color: var(--ss-text);
 }
 .hero .button--secondary:hover {
@@ -861,7 +865,7 @@ body {
   border-color: var(--ss-violet);
   outline: 3px solid var(--ss-violet);
   outline-offset: 4px;
-  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(138, 92, 246, 0.25);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(var(--ss-violet-rgb), 0.25);
 }
 .speaker-card:hover .speaker-card__image, .speaker-card:focus-visible .speaker-card__image {
   transform: scale(1.08);
@@ -892,11 +896,14 @@ body {
 .speaker-card__content > p:last-child:not(.speaker-card__description),
 .speaker-card__content .speaker-card__description {
   margin: 0;
-  color: var(--ss-text-muted);
   font-size: 0.9rem;
   line-height: 1.7;
 }
+.speaker-card__content > p:last-child:not(.speaker-card__description) {
+  color: var(--ss-text-muted);
+}
 .speaker-card__content .speaker-card__description {
+  color: var(--ss-text);
   max-height: 0;
   margin-top: 0;
   overflow: hidden;
@@ -1015,7 +1022,7 @@ body {
   margin: 0 0 1.5rem;
   padding: 0.4rem 0.75rem;
   color: var(--ss-cyan);
-  background-color: rgba(34, 211, 238, 0.08);
+  background-color: rgba(var(--ss-cyan-rgb), 0.08);
   border-radius: 999px;
   font-size: 0.65rem;
   font-weight: 700;
@@ -1125,12 +1132,13 @@ body {
 .ticket-card--featured {
   position: relative;
   border-color: var(--ss-violet);
-  background: linear-gradient(155deg, rgba(138, 92, 246, 0.13), var(--ss-surface) 55%);
-  box-shadow: 0 0 2rem rgba(138, 92, 246, 0.08);
+  background: linear-gradient(155deg, rgba(var(--ss-violet-rgb), 0.13), var(--ss-surface) 55%);
+  box-shadow: 0 0 2rem rgba(var(--ss-violet-rgb), 0.08);
 }
 .ticket-card--featured .ticket-card__label {
   color: var(--ss-violet);
-  background-color: rgba(138, 92, 246, 0.14);
+  background-color: var(--ss-surface);
+  border: 1px solid var(--ss-violet);
 }
 .ticket-card--featured:hover {
   border-color: var(--ss-violet);
@@ -1288,7 +1296,7 @@ body {
   min-height: 27rem;
   margin: 0;
   background-color: var(--ss-surface);
-  background-image: linear-gradient(rgba(34, 211, 238, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.045) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(var(--ss-cyan-rgb), 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--ss-cyan-rgb), 0.045) 1px, transparent 1px);
   background-size: 36px 36px;
   border: 1px solid var(--ss-border);
   border-radius: 1rem;
@@ -1305,8 +1313,13 @@ body {
 .venue__map figcaption {
   position: absolute;
   bottom: 1.25rem;
-  color: var(--ss-text-muted);
+  z-index: 1;
+  padding: 0.65rem 1rem;
+  color: var(--ss-text);
   font-size: 0.75rem;
+  background-color: var(--ss-surface);
+  border: 1px solid var(--ss-border);
+  border-radius: 0.5rem;
   text-align: center;
 }
 

@@ -26,12 +26,12 @@
     background:
       radial-gradient(
         ellipse 40rem 22rem at 75% 30%,
-        rgba(138, 92, 246, 0.16),
+        rgba(var(--ss-violet-rgb), 0.16),
         transparent 70%
       ),
       radial-gradient(
         ellipse 38rem 18rem at 20% 90%,
-        rgba(34, 211, 238, 0.10),
+        rgba(var(--ss-cyan-rgb), 0.10),
         transparent 70%
       );
 
@@ -226,7 +226,7 @@
   color: var(--ss-button-text);
 
   &:hover {
-    box-shadow: 0 0 24px rgba(34, 211, 238, 0.2);
+    box-shadow: 0 0 24px rgba(var(--ss-cyan-rgb), 0.2);
   }
 }
 
@@ -236,7 +236,7 @@
 .hero .button--secondary {
   background-color: transparent;
 
-  border-color: var(--ss-border);
+  border-color: var(--ss-cyan);
 
   color: var(--ss-text);
 
@@ -945,7 +945,7 @@
 
     box-shadow:
       0 1rem 2.5rem rgba(0, 0, 0, 0.15),
-      0 0 0 3px rgba(138, 92, 246, 0.25);
+      0 0 0 3px rgba(var(--ss-violet-rgb), 0.25);
 
     .speaker-card__image {
       transform: scale(1.08);
@@ -988,13 +988,17 @@
   .speaker-card__description {
     margin: 0;
 
-    color: var(--ss-text-muted);
-
     font-size: 0.9rem;
     line-height: 1.7;
   }
 
+  > p:last-child:not(.speaker-card__description) {
+    color: var(--ss-text-muted);
+  }
+
   .speaker-card__description {
+    color: var(--ss-text);
+
     max-height: 0;
     margin-top: 0;
     overflow: hidden;
@@ -1168,7 +1172,7 @@
 
   color: var(--ss-cyan);
 
-  background-color: rgba(34, 211, 238, 0.08);
+  background-color: rgba(var(--ss-cyan-rgb), 0.08);
 
   border-radius: 999px;
 
@@ -1330,16 +1334,17 @@
 
   background: linear-gradient(
     155deg,
-    rgba(138, 92, 246, 0.13),
+    rgba(var(--ss-violet-rgb), 0.13),
     var(--ss-surface) 55%
   );
 
-  box-shadow: 0 0 2rem rgba(138, 92, 246, 0.08);
+  box-shadow: 0 0 2rem rgba(var(--ss-violet-rgb), 0.08);
 
   .ticket-card__label {
     color: var(--ss-violet);
 
-    background-color: rgba(138, 92, 246, 0.14);
+    background-color: var(--ss-surface);
+    border: 1px solid var(--ss-violet);
   }
 
   &:hover {
@@ -1564,12 +1569,12 @@
 
   background-image:
     linear-gradient(
-      rgba(34, 211, 238, 0.045) 1px,
+      rgba(var(--ss-cyan-rgb), 0.045) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(34, 211, 238, 0.045) 1px,
+      rgba(var(--ss-cyan-rgb), 0.045) 1px,
       transparent 1px
     );
 
@@ -1592,9 +1597,15 @@
 .venue__map figcaption {
   position: absolute;
   bottom: 1.25rem;
+  z-index: 1;
+  padding: 0.65rem 1rem;
 
-  color: var(--ss-text-muted);
+  color: var(--ss-text);
   font-size: 0.75rem;
+
+  background-color: var(--ss-surface);
+  border: 1px solid var(--ss-border);
+  border-radius: 0.5rem;
 
   text-align: center;
 }
