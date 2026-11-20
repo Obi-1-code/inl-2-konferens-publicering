@@ -47,7 +47,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Inter, system-ui, "Segoe UI", sans-serif;
   background-color: var(--ss-background);
   color: var(--ss-text);
 }
@@ -651,10 +651,14 @@ body {
   border-radius: 0.9rem;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.program-card:hover {
+.program-card:hover, .program-card:focus-visible {
   transform: translateY(-3px);
   border-color: var(--ss-cyan);
   box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.08);
+}
+.program-card:focus-visible {
+  outline: 2px solid var(--ss-cyan);
+  outline-offset: 3px;
 }
 .program-card:nth-child(even) {
   border-left-color: var(--ss-violet);
@@ -1400,8 +1404,8 @@ body {
   cursor: pointer;
   list-style: none;
 }
-.faq__item summary::-webkit-details-marker {
-  display: none;
+.faq__item summary::marker {
+  content: "";
 }
 .faq__item summary::after {
   content: "+";

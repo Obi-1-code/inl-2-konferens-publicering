@@ -636,11 +636,17 @@
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     transform: translateY(-3px);
     border-color: var(--ss-cyan);
 
     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ss-cyan);
+    outline-offset: 3px;
   }
 
   // Alternate accent color between cards
@@ -1722,8 +1728,8 @@
     cursor: pointer;
     list-style: none;
 
-    &::-webkit-details-marker {
-      display: none;
+    &::marker {
+      content: "";
     }
 
     // The pseudo-element displays the plus/minus marker without another HTML element.

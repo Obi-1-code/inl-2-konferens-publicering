@@ -1,9 +1,27 @@
-# Inlämningsuppgift
-Här är repot för din inlämningsuppgift.
+# The Singularity Summit 2027
 
-Om filerna:
-- `.gitignore` - Denna fil används för att ignorera/exkludera vissa systemfiler som inte behöver komma med i versionshanteringen. En sådan bör man alltid ha i sitt repo.
-- `index.html` - För att sidan ska kunna publiceras automatiskt på GitHub Pages är det viktigt att filen heter `index.html` med ett litet `i` i början.
-- I mappen `.github` finns ett script som automatiskt publicerar sidan till GitHub Pages.
-- I mappen `.github` finns även instruktioner för hur CoPilot ska ge feedback på koden.
-- Det går bra att redigera denna README-fil.
+A conference website created as part of a web development assignment. The website presents a fictional conference focused on artificial intelligence, robotics and the relationship between humans and machines.
+
+## About the Project
+
+The purpose of this project is to create a responsive website for a fictional technology conference taking place in Stockholm on April 20, 2027. The website provides information about the event, its programme, speakers, tickets and venue.
+
+## Features
+
+- Responsive layout for desktop, tablet and mobile devices
+- Navigation links to the main sections of the website
+- Introduction and conference information
+- Programme with six scheduled talks
+- Speaker profiles with interactive hover and keyboard focus effects
+- Three ticket options
+- Event location information and map
+- Expandable FAQ section
+- Light and dark themes based on system preferences (Your browser theme settings decides if the page is in light or dark mode)
+- Keyboard accessibility and semantic HTML structure
+
+## Technologies
+
+- HTML5
+- CSS
+- Sass (SCSS)
+- Git and GitHub
