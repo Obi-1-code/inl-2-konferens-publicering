@@ -24,8 +24,6 @@
 </head>
 
 <body>
-  
-<a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
   <div class="site-header__inner">
@@ -34,6 +32,8 @@
       THE SINGULARITY SUMMIT
     </a>
 
+    <!-- Section navigation. Each href fragment, such as #about, jumps to the section with the matching id. -->
+    <!-- These links use matching section IDs to navigate to different parts of the page. -->
     <nav class="site-header__nav" aria-label="Main navigation">
       <ul>
         <li><a href="#about">About</a></li>
@@ -41,6 +41,7 @@
         <li><a href="#speakers">Speakers</a></li>
         <li><a href="#tickets">Tickets</a></li>
         <li><a href="#venue">Venue</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
 
@@ -51,9 +52,9 @@
   </div>
 </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
-  <section class="hero" id="home">
+  <section class="hero" id="home" tabindex="-1">
     <div class="hero__content">
 
       <p class="hero__eyebrow">
@@ -73,7 +74,7 @@
       </p>
 
       <p class="hero__event-details">
-        16 September 2027 · Stockholm, Sweden
+        20 April 2027 · Stockholm, Sweden
       </p>
 
       <div class="hero__actions">
@@ -93,12 +94,12 @@
     </div>
   </section>
 
-  <section class="about section" id="about">
+  <section class="about section" id="about" tabindex="-1" aria-labelledby="about-heading">
 
   <div class="section-heading">
     <p class="section-heading__eyebrow">ABOUT THE SUMMIT</p>
 
-    <h2>Welcome to the Next Era</h2>
+    <h2 id="about-heading">Welcome to the Next Era</h2>
 
     <p>
       The future is no longer something we wait for.
@@ -162,12 +163,12 @@
 
 </section>
 
-<section class="program section" id="program">
+<section class="program section" id="program" tabindex="-1" aria-labelledby="program-heading">
 
   <div class="section-heading">
     <p class="section-heading__eyebrow">THE AGENDA</p>
 
-    <h2>Conference Programme</h2>
+    <h2 id="program-heading">Conference Programme</h2>
 
     <p>
       Six talks. Six perspectives. One rapidly changing
@@ -179,7 +180,7 @@
 
     <article class="program-card">
       <div class="program-card__time">
-        <time datetime="2027-09-16T09:15">09:15</time>
+        <time datetime="2027-04-20T09:15">09:15</time>
         <span>– 10:00</span>
       </div>
 
@@ -204,7 +205,7 @@
 
     <article class="program-card">
       <div class="program-card__time">
-        <time datetime="2027-09-16T10:15">10:15</time>
+        <time datetime="2027-04-20T10:15">10:15</time>
         <span>– 11:00</span>
       </div>
 
@@ -229,7 +230,7 @@
 
     <article class="program-card">
       <div class="program-card__time">
-        <time datetime="2027-09-16T11:15">11:15</time>
+        <time datetime="2027-04-20T11:15">11:15</time>
         <span>– 12:00</span>
       </div>
 
@@ -254,7 +255,7 @@
 
     <article class="program-card">
       <div class="program-card__time">
-        <time datetime="2027-09-16T13:00">13:00</time>
+        <time datetime="2027-04-20T13:00">13:00</time>
         <span>– 13:45</span>
       </div>
 
@@ -279,7 +280,7 @@
 
     <article class="program-card">
       <div class="program-card__time">
-        <time datetime="2027-09-16T14:00">14:00</time>
+        <time datetime="2027-04-20T14:00">14:00</time>
         <span>– 14:45</span>
       </div>
 
@@ -304,7 +305,7 @@
 
     <article class="program-card">
       <div class="program-card__time">
-        <time datetime="2027-09-16T15:00">15:00</time>
+        <time datetime="2027-04-20T15:00">15:00</time>
         <span>– 15:45</span>
       </div>
 
@@ -314,7 +315,7 @@
         <h3>The Ethics of Autonomous Systems</h3>
 
         <p class="program-card__speaker">
-          Professor Adrian Keller
+          Professor Adrienne Keller
         </p>
 
         <p>
@@ -336,12 +337,12 @@
 
 </section>
 
-<section class="speakers section" id="speakers">
+<section class="speakers section" id="speakers" tabindex="-1" aria-labelledby="speakers-heading">
 
   <div class="section-heading">
     <p class="section-heading__eyebrow">MEET THE EXPERTS</p>
 
-    <h2>Our Speakers</h2>
+    <h2 id="speakers-heading">Our Speakers</h2>
 
     <p>
       Meet the minds, machines and occasional questionable
@@ -351,20 +352,26 @@
 
   <div class="speakers__grid">
 
-    <article class="speaker-card speaker-card--featured">
+    <!-- Hover effects and keyboard accessibility.
+         tabindex="0" puts each article in the tab order; aria-labelledby gives it a name and
+         aria-describedby associates the speaker description for assistive technology. CSS reveals
+         the same description on :hover and :focus-visible.
+    -->
+    <!-- tabindex makes each card keyboard-focusable; ARIA labels identify and describe it. Keyboard focus reveals the same description as hover. -->
+    <article class="speaker-card speaker-card--featured" tabindex="0" aria-labelledby="speaker-claptrap-name" aria-describedby="speaker-claptrap-description">
       <img
-        src="images/claptrap.png"
+        src="images/claptrap.webp"
         alt="CL4P-TP, the enthusiastic robot from Borderlands"
         class="speaker-card__image"
       >
 
       <div class="speaker-card__content">
-        <h3>CL4P-TP (Claptrap)</h3>
+        <h3 id="speaker-claptrap-name">CL4P-TP (Claptrap)</h3>
         <p class="speaker-card__role">
           Senior AI Compliance Specialist
         </p>
 
-        <p>
+        <p id="speaker-claptrap-description" class="speaker-card__description">
           An enthusiastic autonomous assistant with extensive
           experience in human-machine relations. CL4P-TP believes
           that effective AI adoption begins with humans learning
@@ -374,20 +381,20 @@
     </article>
 
 
-    <article class="speaker-card">
+    <article class="speaker-card" tabindex="0" aria-labelledby="speaker-elena-name" aria-describedby="speaker-elena-description">
       <img
-        src="images/elena-voss.png"
+        src="images/elena-voss.webp"
         alt="Portrait of fictional AI researcher Dr. Elena Voss"
         class="speaker-card__image"
       >
 
       <div class="speaker-card__content">
-        <h3>Dr. Elena Voss</h3>
+        <h3 id="speaker-elena-name">Dr. Elena Voss</h3>
         <p class="speaker-card__role">
           Director of Human-AI Psychology
         </p>
 
-        <p>
+        <p id="speaker-elena-description" class="speaker-card__description">
           A leading researcher in emotional intelligence
           and human-machine interaction, exploring how
           artificial systems interpret human behaviour.
@@ -396,20 +403,20 @@
     </article>
 
 
-    <article class="speaker-card">
+    <article class="speaker-card" tabindex="0" aria-labelledby="speaker-marcus-name" aria-describedby="speaker-marcus-description">
       <img
-        src="images/marcus-chen.png"
+        src="images/marcus-chen.webp"
         alt="Portrait of fictional AI researcher Dr. Marcus Chen"
         class="speaker-card__image"
       >
 
       <div class="speaker-card__content">
-        <h3>Dr. Marcus Chen</h3>
+        <h3 id="speaker-marcus-name">Dr. Marcus Chen</h3>
         <p class="speaker-card__role">
           Director of Autonomous Intelligence
         </p>
 
-        <p>
+        <p id="speaker-marcus-description" class="speaker-card__description">
           Specialising in autonomous decision-making,
           machine independence and the evolving balance
           between human oversight and artificial intelligence.
@@ -418,20 +425,20 @@
     </article>
 
 
-    <article class="speaker-card">
+    <article class="speaker-card" tabindex="0" aria-labelledby="speaker-aria-name" aria-describedby="speaker-aria-description">
       <img
-        src="images/aria-7.png"
+        src="images/ARIA-7.webp"
         alt="Portrait of ARIA-7, a humanoid AI robot"
         class="speaker-card__image"
       >
 
       <div class="speaker-card__content">
-        <h3>ARIA-7</h3>
+        <h3 id="speaker-aria-name">ARIA-7</h3>
         <p class="speaker-card__role">
           Autonomous Collaboration Unit
         </p>
 
-        <p>
+        <p id="speaker-aria-description" class="speaker-card__description">
           An advanced humanoid robot specialising in
           human-machine collaboration, communication
           and cooperative intelligence.
@@ -440,20 +447,20 @@
     </article>
 
 
-    <article class="speaker-card">
+    <article class="speaker-card" tabindex="0" aria-labelledby="speaker-nexus-name" aria-describedby="speaker-nexus-description">
       <img
-        src="images/nexus-4.png"
+        src="images/nexus-4.webp"
         alt="Portrait of NEXUS-4, an independent humanoid robot"
         class="speaker-card__image"
       >
 
       <div class="speaker-card__content">
-        <h3>NEXUS-4</h3>
+        <h3 id="speaker-nexus-name">NEXUS-4</h3>
         <p class="speaker-card__role">
           Independent Robotic Consciousness Researcher
         </p>
 
-        <p>
+        <p id="speaker-nexus-description" class="speaker-card__description">
           An independent robotic intelligence exploring
           questions of machine identity, autonomy and
           the meaning of existence beyond human design.
@@ -462,20 +469,20 @@
     </article>
 
 
-    <article class="speaker-card">
+    <article class="speaker-card" tabindex="0" aria-labelledby="speaker-adrienne-name" aria-describedby="speaker-adrienne-description">
       <img
-        src="images/adrian-keller.png"
-        alt="Portrait of fictional AI ethics professor Adrian Keller"
+        src="images/adrienne-keller.webp"
+        alt="Portrait of fictional AI ethics professor Adrienne Keller"
         class="speaker-card__image"
       >
 
       <div class="speaker-card__content">
-        <h3>Professor Adrian Keller</h3>
+        <h3 id="speaker-adrienne-name">Professor Adrienne Keller</h3>
         <p class="speaker-card__role">
           Chair of AI Ethics and Governance
         </p>
 
-        <p>
+        <p id="speaker-adrienne-description" class="speaker-card__description">
           An expert in artificial intelligence ethics,
           focusing on accountability, transparency and
           responsible autonomous decision-making.
@@ -487,12 +494,12 @@
 
 </section>
 
-<section class="tickets section" id="tickets">
+<section class="tickets section" id="tickets" tabindex="-1" aria-labelledby="tickets-heading">
 
   <div class="section-heading">
     <p class="section-heading__eyebrow">SECURE YOUR ACCESS</p>
 
-    <h2>Choose Your Pass</h2>
+    <h2 id="tickets-heading">Choose Your Pass</h2>
 
     <p>
       Your access to tomorrow starts here.
@@ -594,12 +601,12 @@
 
 </section>
 
-<section class="venue section" id="venue">
+<section class="venue section" id="venue" tabindex="-1" aria-labelledby="venue-heading">
 
   <div class="section-heading">
     <p class="section-heading__eyebrow">JOIN US IN STOCKHOLM</p>
 
-    <h2>Event Location</h2>
+    <h2 id="venue-heading">Event Location</h2>
 
     <p>
       One day, one location, and a glimpse into the future.
@@ -610,17 +617,17 @@
 
     <div class="venue__details">
 
-      <h3>Nexus Conference Centre</h3>
+      <h3>Älvjsömässan</h3>
 
       <address>
-        Framtidsgatan 420<br>
-        111 22 Stockholm<br>
+        Mässvägen 1<br>
+        125 30 Älvsjö<br>
         Sweden
       </address>
 
       <p>
         <strong>Date:</strong>
-        16 September 2027
+        20 April 2027
       </p>
 
       <p>
@@ -636,7 +643,7 @@
       <h3>Getting There</h3>
 
       <p>
-        Located in central Stockholm, Nexus Conference Centre
+        Located just outside the centre of Stockholm, Älvjsömässan
         offers convenient access to nearby public transport.
         Plan your journey ahead of the event.
       </p>
@@ -656,8 +663,8 @@
 
     <figure class="venue__map">
       <img
-        src="images/nexus-hall-map.png"
-        alt="Static illustrated map showing the location of Nexus Conference Centre in Stockholm"
+        src="images/alvsjomassan-karta.png"
+        alt="Static map showing the location of Älvjsömässan in Stockholm"
       >
 
       <figcaption>
@@ -669,12 +676,12 @@
 
 </section>
 
-<section class="faq section" id="faq">
+<section class="faq section" id="faq" tabindex="-1" aria-labelledby="faq-heading">
 
   <div class="section-heading">
     <p class="section-heading__eyebrow">GOOD TO KNOW</p>
 
-    <h2>Frequently Asked Questions</h2>
+    <h2 id="faq-heading">Frequently Asked Questions</h2>
 
     <p>
       Everything you need to know before joining the next era.
@@ -683,6 +690,7 @@
 
   <div class="faq__list">
 
+    <!-- Native details and summary elements provide browser-managed, keyboard-operable answers without JavaScript. -->
     <details class="faq__item">
       <summary>
         Do I need a technical background to attend?
@@ -737,7 +745,7 @@
 
 </main>
 
-<footer class="site-footer" id="contact">
+<footer class="site-footer" id="contact" tabindex="-1" aria-labelledby="contact-heading">
 
   <div class="site-footer__content">
 
@@ -752,7 +760,7 @@
     </div>
 
     <div class="site-footer__contact">
-      <h2>Contact</h2>
+      <h2 id="contact-heading">Contact</h2>
 
       <a href="mailto:hello@singularitysummit.com">
         hello@singularitysummit.com
@@ -769,6 +777,7 @@
       <a href="#speakers">Speakers</a>
       <a href="#tickets">Tickets</a>
       <a href="#venue">Venue</a>
+      <a href="#faq">FAQ</a>
     </div>
 
   </div>

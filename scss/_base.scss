@@ -6,6 +6,7 @@
 }
 
 /* Global page settings */
+// In-page links scroll smoothly; the reduced-motion preference below disables this effect when requested.
 html {
   scroll-behavior: smooth;
 }
@@ -28,6 +29,7 @@ body {
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  // Use immediate scrolling for people who prefer reduced motion.
   html {
     scroll-behavior: auto;
   }

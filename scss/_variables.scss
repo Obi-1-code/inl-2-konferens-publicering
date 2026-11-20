@@ -1,3 +1,6 @@
+// Light and dark themes.
+// These CSS custom properties define the default dark palette; components read them with var() so shared colours can be changed in one place.
+/* CSS custom properties define the shared colour palette for the site. */
 :root {
   color-scheme: dark;
 
@@ -20,6 +23,8 @@
 }
 
 /* Light mode */
+// This media query overrides the palette when the operating system prefers light mode, without rewriting each component's styles.
+// Use the light palette when the user's system preference is light.
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;

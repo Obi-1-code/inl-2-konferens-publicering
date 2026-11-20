@@ -15,6 +15,7 @@
 
 /* Header layout */
 
+// CSS Grid balances the brand and call-to-action around the centered navigation.
 .site-header__inner {
   width: min(100% - 3rem, 82rem);
   min-height: 5rem;
@@ -60,6 +61,12 @@
     border-radius: 50%;
 
     box-shadow: 0 0 12px var(--ss-cyan);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--ss-cyan);
+    outline-offset: 5px;
+    border-radius: 0.25rem;
   }
 }
 
@@ -179,6 +186,8 @@
    RESPONSIVE HEADER
 ===================================== */
 
+// Breakpoints adapt the header layout for tablet and mobile screens.
+// Responsive design. At 56rem the navigation moves below the brand and CTA; at 36rem links wrap and controls shrink.
 @media (max-width: 56rem) {
 
   .site-header__inner {
